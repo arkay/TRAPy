@@ -1,0 +1,47 @@
+TODO:
+move pyqt4 application to main thread, pass in the systrayicon object to the polling process... or should we use shared memory? Probably use shared memory.
+
+python 2.7
+use pysfml http://www.sfml-dev.org/download.php
+or wxpython http://www.wxpython.org/download.php#stable
+reads in tokyotosho rss feed http://tokyotosho.info/rss.php?filter=1
+able to search for specific releases by sub group or title (obviously multiple searches allowed)
+store link to torrent
+parses every 5-10 minutes (or more)
+stores time of latest file
+only looks at rss feed respones up until that time
+pop up notification in systemtray when something matches the subgroup/title requested
+keep .conf file
+run on startup
+etc.
+
+mostly just a way to practice my coding skills and learn gui and what not. even though wxpython doesn't look great, it's not bad I suppose. Mostly using it for notification bubbles (at least thats what the internet tells me)
+when parsing xml, only care about the name and torrent, and possibly a ddl link if provided
+
+[============ Title ==============[X]
+|  Add Query | All Matches | Delete |   * not shown: New Season button that clears all history
+|  Title Keywords                   |
+|  [                          ]     |
+|  Or Regular Expression            |
+|  [                          ]     |
+|  [ Add ]                          |
+|===================================|
+
+conf file will store:
+last found time from the rss feed
+any and all matches found, sorted chronologically (aka not sorted)
+any and all queries, sorted by date entered
+any and all regular expressions, sorted by date entered
+
+example rss item:
+<item>
+	<category>Anime</category>
+	<title>Onani Master Kurosawa Picture Drama Chapter 01 v2.mkv</title>
+	<link><![CDATA[http://www.nyaa.eu/?page=torrentinfo&tid=198492]]></link>
+	<description>
+		<![CDATA[Torrent: <a href="http://www.nyaa.eu/?page=torrentinfo&tid=198492">http://www.nyaa.eu/?page=torrentinfo&tid=198492</a>
+		<br />Size: 78.33MB<br />Comment: Onani Master Kurosawa Picture Drama Chapter 01 v2 with english subtitle. Please help seed, DDL at website -&gt;]]>
+	</description>
+	<guid><![CDATA[http://tokyotosho.info/details.php?id=390533]]></guid>
+	<pubDate>Mon, 07 Mar 2011 13:58:45 GMT</pubDate>
+</item>
